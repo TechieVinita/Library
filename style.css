@@ -1,5 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+:root{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid gray;
+}
+
+.container{
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: red; */
+
+    padding: 8px;
+
+    margin-top: 20px;
+}
+
+.addBookBtn{
+
+    cursor: pointer;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 7px;
+    border: 1px solid transparent;
+
+    color: white;
+    background-color: rgb(123, 123, 228);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    border-radius: 7px;
+    border: 1px solid gray;
+    box-shadow: 2px 2px 2px 2px gray;
 }
