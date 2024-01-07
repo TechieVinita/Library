@@ -14,6 +14,20 @@
 body{
     display: flex;
     flex-direction: column;
+
+    fill: rgb(123, 123, 228);
+}
+
+header{
+    display: flex;
+    border-bottom: 1px solid gray;
+    justify-content: center;
+    align-items: center;
+}
+
+svg{
+    width: 50px;
+    height: 80px;
 }
 
 h1{
@@ -21,24 +35,20 @@ h1{
     font-weight: 500;
     text-align: center;
     padding: 8px;
-    border-bottom: 1px solid gray;
 }
 
 .container{
-    gap: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* background-color: red; */
-
     padding: 8px;
-
     margin-top: 20px;
+
+    /* background-color: red; */
+}
+
+button{
+    cursor: pointer;
 }
 
 .addBookBtn{
-
-    cursor: pointer;
     padding: 0.8rem;
     font-size: 1rem;
     font-weight: 600;
@@ -49,11 +59,29 @@ h1{
     background-color: rgb(123, 123, 228);
 }
 
+dialog{
+    /* background-color: blue; */
+    border: none;
+    border-radius: 6px;
+}
+
 form{
     display: flex;
     flex-direction: column;
     padding: 0.8rem;
-    border-radius: 7px;
-    border: 1px solid gray;
-    box-shadow: 2px 2px 2px 2px gray;
+}
+
+::backdrop {
+    display: flex;
+
+    background-image: linear-gradient(
+        45deg,
+        rebeccapurple,
+        rgb(123, 123, 228)
+    );
+    opacity: 0.75;
+}
+
+.form-field{
+    margin-bottom: 10px;
 }

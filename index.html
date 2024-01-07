@@ -9,34 +9,44 @@
 </head>
 <body>
     <header>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>bookshelf</title><path d="M9 3V18H12V3H9M12 5L16 18L19 17L15 4L12 5M5 5V18H8V5H5M3 19V21H21V19H3Z" /></svg>
         <h1>Library</h1>
     </header>
+
     <section class="container">
 
-        <form action="" method="post">
-            <div class="book-title">
-                <label for="title">Title</label>
-                <input type="text" id="title" name="title">
-            </div>
+        <dialog>
+            <form class="form-container">
+                <div class="book-title form-field">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title">
+                </div>
+    
+                <div class="book-author form-field">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" name="author">
+                </div>
+    
+                <div class="no_of_pages form-field">
+                    <label for="no_of_pages">Number of pages</label>
+                    <input type="number" id="no_of_pages" name="no_of_pages">
+                </div>
+    
+                <div class="hasRead form-field">
+                    <label for="hasRead">Have you read the book?</label>
+                    <input type="checkbox" name="hasRead" id="hasRead">
+                </div>
+    
+                <button id="add" type="submit">SUBMIT</button>
+                <button id="close" autofocus>CLOSE</button>
+            </form>
+        </dialog>
 
-            <div class="book-author">
-                <label for="author">Author</label>
-                <input type="text" id="author" name="author">
-            </div>
-
-            <div class="no_of_pages">
-                <label for="no_of_pages">Number of pages</label>
-                <input type="number" id="no_of_pages" name="no_of_pages">
-            </div>
-
-            <div class="hasRead">
-                <label for="hasRead">Have you read the book?</label>
-                <input type="checkbox" name="hasRead" id="hasRead">
-            </div>
-        </form>
+        <button class="addBookBtn">NEW BOOK</button>
 
         <div class="books-container"></div>
-        <button class="addBookBtn">NEW BOOK</button>
+
     </section>
+
 </body>
 </html>
