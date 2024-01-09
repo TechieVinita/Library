@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
@@ -6,9 +6,21 @@ const bookPages = document.querySelector('#no_of_pages');
 const bookRead = document.querySelector('#hasRead');
 
 const dialogBox = document.querySelector('dialog');
-const showBtn = document.querySelector('dialog + .addBookBtn');
+const showBtn = document.querySelector('.showDialogBox >.addBookBtn');
 const closeBtn = document.querySelector('#close');
 
+const submitBtn = document.querySelector('#add');
+const booksContainer = document.querySelector('.books-container');
+
+submitBtn.addEventListener('click', avoidSubmit, false);
+
+function avoidSubmit(event){
+  addBookToLibrary();
+  // console.log(myLibrary);
+  display();
+  dialogBox.close();
+  event.preventDefault();
+}
 
 showBtn.addEventListener('click', () => {
     dialogBox.showModal();
@@ -26,34 +38,48 @@ function Book(title, author, no_of_pages, read) {
   this.read = read;
 }
 
-// function addBookToLibrary() {
-function addBookToLibrary( title, author, no_of_pages, read ) {
+function addBookToLibrary() {
   // do stuff here
-//   const newBook = new Book(bookTitle.value, bookAuthor.value, bookPages.value, bookRead.value );
-  const newBook = new Book(title, author, no_of_pages, read);
+  bookTitleValue = bookTitle.value;
+  bookAuthorValue = bookAuthor.value;
+  bookPagesValue = bookPages.value;
+  bookReadValue = Boolean(bookRead.value);
 
+  const newBook = new Book(bookTitleValue, bookAuthorValue, bookPagesValue, bookReadValue );
   myLibrary.push(newBook);
-//   displayBookCard();
 }
-
-// function displayBookCard(){
-
-// }
-
-// addBookToLibrary("abc", "xyz", 234, false);
-// addBookToLibrary("book", "John", 545, true);
-// addBookToLibrary("Hey", "Adam", 145, true);
-
-// console.log(myLibrary);
 
 function display(){
-    for(let i=0; i<myLibrary.length; i++){
-        // console.log(myLibrary[i].title);
-        // console.log(myLibrary[i].author);
-        // console.log(myLibrary[i].no_of_pages);
-        // console.log(myLibrary[i].read);
-        // console.log();
-    }
-}
+  const bookCard = document.createElement('div');
+  const ul = document.createElement('ul');
+  const cancelBtn = document.createElement('button');
 
-display();
+  cancelBtn.textContent = 'CANCEL';
+
+  let lastIndex = myLibrary.length - 1;
+
+  const li1 = document.createElement('li');
+  li1.textContent = `Book : ${myLibrary[lastIndex].title}`;
+
+  const li2 = document.createElement('li');
+  li2.textContent = `Author : ${myLibrary[lastIndex].author}`;
+
+  const li3 = document.createElement('li');
+  li3.textContent = `Number of Pages : ${myLibrary[lastIndex].no_of_pages}`;
+
+  const li4 = document.createElement('li');
+  li4.textContent = `Has read the book : ${myLibrary[lastIndex].read}`;
+
+  ul.appendChild(li1);
+  ul.appendChild(li2);
+  ul.appendChild(li3);
+  ul.appendChild(li4);
+  ul.appendChild(cancelBtn);
+
+  bookCard.appendChild(ul);
+  booksContainer.appendChild(bookCard);
+
+  cancelBtn.addEventListener('click', () => {
+    booksContainer.removeChild(bookCard);
+  });
+}
