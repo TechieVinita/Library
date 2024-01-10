@@ -96,7 +96,7 @@ form{
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 #add{
@@ -131,10 +131,24 @@ form{
     margin-bottom: 10px;
 
     display: flex;
-    gap: 15px;
-    justify-content: space-between;
+    gap: 25px;
+    /* background-color: red; */
 }
 
+input{
+    padding: 0.4rem;
+    display: inline-block;
+    width: 100%;
+}
+
+input[type="checkbox"]{
+    width: auto;
+}
+
+::placeholder{
+    color: gray;
+    font-size: 0.95rem;
+}
 
 .books-container{
     display: grid;
